@@ -1,16 +1,16 @@
 class Horndb < Formula
   desc "Hybrid RDF reasoner (OWL 2 RL) with a SPARQL 1.1 HTTP frontend"
   homepage "https://github.com/sunstoneinstitute/horndb"
-  url "https://github.com/sunstoneinstitute/horndb/releases/download/v0.5.0/horndb-0.5.0.tar.gz"
-  sha256 "765cee8162af0aa25a3c7d98047f014f0d0ea2fb6f781a5e38e8550836d760f7"
+  url "https://github.com/sunstoneinstitute/horndb/releases/download/v0.6.0/horndb-0.6.0.tar.gz"
+  sha256 "da86119414add9f9442eba24a53e6903c577f7eb0ae852b75f357fa5a0462a7e"
   license "Apache-2.0"
 
   # Bottles are poured by arch; brew falls back to an older-OS bottle of
   # the same arch on newer macOS, and to a source build if none match.
   bottle do
-    root_url "https://github.com/sunstoneinstitute/horndb/releases/download/v0.5.0"
-    sha256 cellar: :any, arm64_sonoma: "84d3180b3efa056fe667b4fc5e952013159d4525ff3918f7337b8975cd91927e"
-    sha256 cellar: :any, arm64_tahoe:  "146d9d639dbc85e2fe672e6b892276e977c9af80dafc711f4f67e42b33dd863e"
+    root_url "https://github.com/sunstoneinstitute/horndb/releases/download/v0.6.0"
+    sha256 cellar: :any, arm64_sequoia: "0bda1e2121878de85d25e42c174078e9049bbe700fab0125fdd3921e928c15c9"
+    sha256 cellar: :any, arm64_tahoe:   "a0f7dab90b981aab919033ac83ce5cd51b7f207c1a320ef5243efad5b3a33fdb"
   end
 
   depends_on "cmake" => :build
