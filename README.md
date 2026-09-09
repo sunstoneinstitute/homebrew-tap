@@ -9,12 +9,14 @@ brew tap sunstoneinstitute/tap
 | Formula | Description | Binary |
 |---------|-------------|--------|
 | horndb | Hybrid RDF reasoner (OWL 2 RL) with a SPARQL 1.1 HTTP frontend | `horndb` |
+| ripwire | Ranked, deterministic code map for AI coding agents (CLI + MCP server) | `ripwire` |
 | worklode | Work tracker CLI for Sunstone Institute | `lode` |
 
 ### Install
 
 ```bash
 brew install sunstoneinstitute/tap/horndb
+brew install sunstoneinstitute/tap/ripwire
 brew install sunstoneinstitute/tap/worklode        # latest release
 brew install --HEAD sunstoneinstitute/tap/worklode # build from main
 ```
