@@ -1,16 +1,16 @@
 class Worklode < Formula
   desc "Work tracker CLI (lode) for Sunstone Institute"
   homepage "https://github.com/sunstoneinstitute/worklode"
-  url "https://github.com/sunstoneinstitute/worklode/archive/refs/tags/v0.16.0.tar.gz"
-  sha256 "9de84456a5c1e881acc7eb6cb72aa0d5b08b2053cbd9fa8f3fa30a249fc77438"
+  url "https://github.com/sunstoneinstitute/worklode/archive/refs/tags/v0.16.1.tar.gz"
+  sha256 "954af73d06e1bf250b2a383a38b671da5028b47fc5e11b83ed508724884c083e"
   head "https://github.com/sunstoneinstitute/worklode.git", branch: "main"
 
   # Bottles are poured by arch; brew falls back to an older-OS bottle of
   # the same arch on newer macOS, and to a source build if none match.
   bottle do
-    root_url "https://github.com/sunstoneinstitute/worklode/releases/download/v0.16.0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7047eb4404c256077260dcf32a4c290701b460f96161f7f4580d9f08a6b93336"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9255583c23e496087e157777b53762a64bd6582b18d7c9aeac6f4d0461618842"
+    root_url "https://github.com/sunstoneinstitute/worklode/releases/download/v0.16.1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e5c05d638f4c65daf9e90f9cbb759fa06d8d398aa8d9637601e2884a8be3d867"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b32b7db63e912c04f9011172bf1f79c116d9010022bc1391ed448b2465272395"
   end
 
   depends_on "go" => :build
