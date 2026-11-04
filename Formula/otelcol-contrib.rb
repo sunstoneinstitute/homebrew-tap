@@ -3,6 +3,7 @@ class OtelcolContrib < Formula
   homepage "https://github.com/open-telemetry/opentelemetry-collector-releases"
   version "0.164.0"
   license "Apache-2.0"
+  revision 1
 
   # Upstream's prebuilt release binary, repackaged. Apple silicon only.
   # Bump the version, url and sha256 together.
@@ -25,11 +26,14 @@ class OtelcolContrib < Formula
   # #{etc}/otelcol-contrib/config.yaml. It can reference the queue directory
   # as ${env:OTELCOL_DATA_DIR}, so it does not depend on the brew prefix.
   service do
-    run [opt_bin/"otelcol-contrib", "--config", etc/"otelcol-contrib/config.yaml"]
+    log = var/"log/otelcol-contrib.log"
+    # launchd does not rotate the log it redirects to, so the collector's output
+    # goes through macOS's rotatelogs: 10 files of at most 10MB.
+    run ["/bin/sh", "-c",
+         "#{opt_bin}/otelcol-contrib --config #{etc}/otelcol-contrib/config.yaml 2>&1 | " \
+         "/usr/sbin/rotatelogs -n 10 #{log} 10M"]
     environment_variables OTELCOL_DATA_DIR: var/"lib/otelcol-contrib"
     keep_alive true
-    log_path var/"log/otelcol-contrib.log"
-    error_log_path var/"log/otelcol-contrib.log"
   end
 
   test do
