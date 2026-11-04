@@ -9,6 +9,7 @@ brew tap sunstoneinstitute/tap
 | Formula | Description | Binary |
 |---------|-------------|--------|
 | horndb | Hybrid RDF reasoner (OWL 2 RL) with a SPARQL 1.1 HTTP frontend | `horndb` |
+| otelcol-contrib | OpenTelemetry Collector (contrib), upstream binary, runs via `brew services` | `otelcol-contrib` |
 | ripwire | Ranked, deterministic code map for AI coding agents (CLI + MCP server) | `ripwire` |
 | worklode | Work tracker CLI for Sunstone Institute | `lode` |
 
