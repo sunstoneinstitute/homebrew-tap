@@ -4,18 +4,13 @@ class OtelcolContrib < Formula
   version "0.164.0"
   license "Apache-2.0"
 
-  # Upstream's prebuilt release binary, repackaged. Bump version and both
-  # sha256 values together.
-  on_macos do
-    on_arm do
-      url "https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.164.0/otelcol-contrib_0.164.0_darwin_arm64.tar.gz"
-      sha256 "af6a0c56886e3cc36ccebe849fa167bad2bc47a97a48fd8497a0d6f93d0cf73a"
-    end
-    on_intel do
-      url "https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.164.0/otelcol-contrib_0.164.0_darwin_amd64.tar.gz"
-      sha256 "b53ab416e9a90625c1453692f1d3a3c4eba72904424e31516866f73064b65d4f"
-    end
-  end
+  # Upstream's prebuilt release binary, repackaged. Apple silicon only.
+  # Bump the version, url and sha256 together.
+  depends_on arch: :arm64
+  depends_on :macos
+
+  url "https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.164.0/otelcol-contrib_0.164.0_darwin_arm64.tar.gz"
+  sha256 "af6a0c56886e3cc36ccebe849fa167bad2bc47a97a48fd8497a0d6f93d0cf73a"
 
   def install
     bin.install "otelcol-contrib"
