@@ -16,6 +16,16 @@ class Worklode < Formula
   depends_on "go" => :build
 
   def install
+    if build.head?
+      # HEAD follows the repo's own install target. GOFLAGS stamps the version,
+      # which the Makefile leaves unset.
+      ENV["GOFLAGS"] = "-ldflags=-X=github.com/sunstoneinstitute/worklode/internal/buildinfo.Version=#{version}"
+      bin.mkpath
+      system "make", "install", "PREFIX=#{prefix}"
+      generate_completions_from_executable(bin/"lode", "completion")
+      return
+    end
+
     ldflags = %W[
       -s -w
       -X github.com/sunstoneinstitute/worklode/internal/buildinfo.Version=#{version}
